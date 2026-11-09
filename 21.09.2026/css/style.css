@@ -1,0 +1,511 @@
+:root {
+/* Dimensions */
+--width-full: 100%;  
+--width-12col: 1200px;
+
+/* Grid Settings*/
+--grid-gap: 10px;
+--padding-default: 20px;
+
+/* Colours */
+--background-color-navigagtion: #00000088;
+--background-color-light: #ededed;
+--background-color-dark-bg: #111111;
+--primary-color: #bf5b23;   
+--color-white: #ffffff;
+--color-dark: #373737;  
+--color-light: #ebebeb; 
+
+/* Color swatch categories */
+--category-seafood: #3e30e2;
+--category-chicken: #249c8e;
+--category-meats: #d09189; 
+--category-veg: #298f3f; 
+--category-misc: #9a951e;
+--category-pasta: #bf5b23;
+--category-desserts: #9374eb; 
+}
+
+/* data-category attributes */
+div[data-category="Seafood"] {
+    border-left: 1px solid var(--category-seafood);
+}
+
+p[data-category="Seafood"] {
+    color: var(--category-seafood);
+}
+
+span[data-category="Seafood"] {
+    color: var(--category-seafood);
+}
+
+div[data-category="Chicken"] {
+    border-left: 1px solid var(--category-chicken);
+}
+
+p[data-category="Chicken"] {
+    color: var(--category-chicken);
+}
+
+span[data-category="Chicken"] {
+    color: var(--category-chicken);
+}
+
+div[data-category="Meats"] {
+    border-left: 1px solid var(--category-meats);
+}
+
+p[data-category="Meats"] {
+    color: var(--category-meats);
+}
+
+span[data-category="Meats"] {
+    color: var(--category-meats);
+}
+
+div[data-category="Veg"] {
+    border-left: 1px solid var(--category-veg);
+}
+
+p[data-category="Veg"] {
+    color: var(--category-veg);
+}
+
+span[data-category="Veg"] {
+    color: var(--category-veg);
+}
+
+div[data-category="Misc"] {
+    border-left: 1px solid var(--category-misc);
+}
+
+p[data-category="Misc"] {
+    color: var(--category-misc);
+}
+
+span[data-category="Misc"] {
+    color: var(--category-misc);
+}
+
+div[data-category="Pasta"] {
+    border-left: 1px solid var(--category-pasta);
+}
+
+p[data-category="Pasta"] {
+    color: var(--category-pasta);
+}
+
+span[data-category="Pasta"] {
+    color: var(--category-pasta);
+}
+
+div[data-category="Desserts"] {
+    border-left: 1px solid var(--category-desserts);
+}
+
+p[data-category="Desserts"] {
+    color: var(--category-desserts);
+}
+
+span[data-category="Desserts"] {
+    color: var(--category-desserts);
+}
+
+*{
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    width: var(--width-full); /* 100% */
+    font-family: "Roboto", sans-serif;
+    height: 100%;
+    position: relative;
+    background-color: var(--background-color-dark-bg);
+}
+
+.container {
+    display: grid;
+    grid-template-rows: auto;   
+    gap: var(--grid-gap);
+    width: var(--width-full);
+}
+
+.navigation, .hero, .image_section, .footer {
+    width: var(--width-full); /* it has full width */
+}
+
+.todays_recipes, .categories, .content_area {
+    width: var(--width-12col);
+    margin: 0 auto 0 auto;
+}
+
+.hamburger-menu {
+    display: none;
+    color: var(--color-light);
+    font-size: 24px;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+.navigation {
+    width: var(--width-full);
+    height: 80px;
+    background-color: var(--background-color-navigagtion);
+    padding: 20px;  
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    position: relative;
+    top: 50px;
+    left: 0px;
+    z-index: 10;
+}
+
+/* For cool floaty later JS*/
+.navigation.fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.menu-container {
+    width: var(--width-12col);
+}
+
+.menu-container ul {
+    display: flex;
+}
+
+.menu-container ul li {
+    list-style: none;
+}
+
+.menu-container a {
+    padding: 0 10px;
+    text-decoration: none;
+    color: var(--background-color-light);
+    border-right: 1px solid var(--background-color-light);
+}
+
+.menu-container a:hover {
+    color: var(--primary-color);
+}
+
+.menu-container li:last-child a {
+    border-right: none; 
+}
+
+/* Hero section */
+.hero{
+    display: flex;
+    justify-content: center;
+    color: var(--background-color-light);
+    position: relative;
+    width: var(--width-full);
+    top: 0;
+    min-height: 600px;
+    height: auto;
+    margin: 0;
+    background-image: url("https://picsum.photos/1920/800");
+    background-size: cover;
+    background-position: center;
+
+}
+
+.hero-container {
+    width: var(--width-12col);
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: var(--grid-gap);
+}
+
+.hero-text h4, h6 {
+    padding: 0;
+    margin: 0;
+}
+
+.hero-text h4 {
+    font-weight: 400;
+    font-size: 34px;
+    text-transform: uppercase;
+}
+
+.hero-text {
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.hero-text {
+    grid-column: 1 / span 4; /* spanning over 4 columns*/
+    grid-row: 1;
+    text-transform: uppercase;
+}
+
+.hero-search {
+    grid-column: 2  span 3;
+    grid-row: 2;
+    margin-top: 50px;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 10px 20px 10px 40px;
+    background-color: transparent;
+    border-radius: 5px;
+    outline: none;
+    color: var(--background-color-light);
+}
+
+.search-input::placeholder {
+    color: var(--background-color-light);
+}
+
+.search-icon {
+    position: absolute;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+
+/* Todays Recipe Stuff Start */
+.todays_recipes {
+    height: fit-content;
+    width: var(--width-12col);
+    display: grid;
+    grid-template-rows: 130px auto;
+    grid-template-columns: 1fr;
+    gap:var(--grid-gap)
+
+}
+
+.todays_recipes_content_block_image img {
+    height: 200px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.todays_recipes_headline {
+    height: 60px;
+    color: var(--color-white);
+    border-bottom: 1px solid var(--color-white);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-style: 37px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 70px;
+}
+
+.todays_recipes_content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--grid-gap);
+    height: fit-content;
+    width: var(--width-12col);
+}
+
+.todays_recipes_content_block {
+    background-color: var(--background-color-light);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.todays_recipes_content_block_text {
+    padding: 20px;
+    color: var(--color-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.todays_recipes_content_block_text_top h5 {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.todays_recipes_content_block_text p {
+    font-size: 16px;
+}
+
+.todays_recipes_content_bottom_area {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 0 0;
+}
+
+.todays_recipes_content_bottom_area_left {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 0 10px;
+    flex-direction: column;
+}
+
+.todays_recipes_content_bottom_area_left p {
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.todays_recipes_content_bottom_area_right button {
+    background-color: var(--color-dark);
+    border: 1px solid var(--background-color-light);
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer; 
+}
+
+.todays_recipes_content_bottom_area_right button a {
+    color: var(--color-white);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.todays_recipes_content_bottom_area_right button a:hover {
+    color: var(--primary-color);
+}
+
+.categories {
+    width: var(--width-12col);
+}
+
+.categories_content {
+    display: flex;
+    background-color: var(--background-color-light);
+    gap: var(--grid-gap);
+    padding: 20px 0;
+    border-radius: 5px;
+    margin: 10px auto;
+    justify-content: space-evenly;
+}
+
+.categories_content_block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    flex-direction: column;
+}
+
+.categories_content_block svg {
+    font-size: 40px;
+}
+
+/* Image section start */
+.image_section {
+    width: var(--width-full);
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    background-image: url("https://picsum.photos/1920/400");
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(0 0, 100% 18%, 100% 100%, 0% 100%);
+}
+
+.image_section_controller {
+    width: var(--width-12col);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 100px auto 50px;
+}
+
+.image_section_box {
+    grid-row: 2;
+    background-color: var(--background-color-light);
+    grid-column: 9 / span 4;
+    height: fit-content;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.image_section h4 {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 0 0 10px 0;
+}
+
+.image_section p {
+    font-size: 15px;
+    color: var(--color-dark);
+}
+
+@media (width <=768px) {
+
+    .menu-container {
+        display: flex;
+    }
+    
+    .hamburger-menu {
+        display: block;
+    }
+    
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        background-color: var(--color-dark);
+        box-shadow: -2px 0 5px #00000080;
+        transform: translateX(100%);
+        z-index: 1000;
+        display: block;
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+     
+    .mobile-menu.open {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0);
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+    
+    .mobile-menu ul {
+        padding: 0;
+    }
+    
+    .mobile-menu ul li {
+        list-style: none;
+        text-decoration: none;
+        padding: 15px;
+    }
+    
+    .mobile-menu ul li a {
+        color: var(--color-light);
+        text-decoration: none;
+    }
+    
+    .mobile-menu .menu-item {
+        display: block;
+        padding: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}
